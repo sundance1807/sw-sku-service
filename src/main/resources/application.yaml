@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: sw-sku-service
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: sw-sku-service-admin
+    password: yf3kJQCmk2Usx64uHT0sLTX2
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
