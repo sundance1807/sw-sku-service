@@ -1,11 +1,15 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /sku-service/api
 spring:
   application:
     name: sw-sku-service
   datasource:
-    url: jdbc:postgresql://localhost:5433/postgres
-    username: sw-sku-service-admin
-    password: yf3kJQCmk2Usx64uHT0sLTX2
-    driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5444/postgres
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: create
