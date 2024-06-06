@@ -1,7 +1,5 @@
 server:
   port: 8090
-  servlet:
-    context-path: /sku-service/api
 spring:
   application:
     name: sw-sku-service
@@ -16,3 +14,21 @@ spring:
     show-sql: false
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8000/realms/sw-realm
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8000/realms/sw-realm
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: sw-client
+            client-secret: Slq2T8nhcWz3iHJOmHa8EEqsEEVVRf86
+            scope: openid
+logging:
+  level:
+    org.springframework.security: trace
