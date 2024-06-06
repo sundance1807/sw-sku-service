@@ -1,4 +1,4 @@
-package kz.sw_sku_service.exception;
+package kz.sw_sku_service.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -62,7 +62,6 @@ public class BrandService {
                 () -> CustomException.builder()
                         .httpStatus(HttpStatus.NOT_FOUND)
                         .message(MessageSource.BRAND_NOT_FOUND.getMessage(id.toString()))
-                        .build()
-        );
+                        .build());
     }
 }
