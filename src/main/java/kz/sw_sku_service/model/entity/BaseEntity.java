@@ -9,17 +9,19 @@ import java.time.LocalDateTime;
 @Data
 @MappedSuperclass
 public class BaseEntity implements Serializable {
+
+    private static final String DEFAULT_USER = "SYSTEM";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "created_by")
+    private String createdBy = DEFAULT_USER;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = "created_by")
-    private String createdBy = "System";
+    @Column(name = "updated_by")
+    private String updatedBy = DEFAULT_USER;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @Column(name = "updated_by")
-    private String updatedBy = "System";
 
     @PrePersist
     public void prePersist() {

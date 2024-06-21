@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface BaseService<D>{
+public interface BaseService<D, E> {
 
     @Transactional(rollbackFor = CustomException.class)
     D saveOne(D d) throws CustomException;
@@ -21,4 +21,6 @@ public interface BaseService<D>{
     DeleteResponseDTO deleteOne(Long id) throws CustomException;
 
     Page<D> search(SearchDTO searchDTO, Pageable pageable);
+
+    E findById(Long id) throws CustomException;
 }

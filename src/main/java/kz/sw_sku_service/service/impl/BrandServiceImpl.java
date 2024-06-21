@@ -116,7 +116,8 @@ public class BrandServiceImpl implements BrandService {
         }
     }
 
-    private BrandEntity findById(Long id) throws CustomException {
+    @Override
+    public BrandEntity findById(Long id) throws CustomException {
         return brandRepository.findById(id).orElseThrow(
                 () -> CustomException.builder()
                         .httpStatus(HttpStatus.NOT_FOUND)

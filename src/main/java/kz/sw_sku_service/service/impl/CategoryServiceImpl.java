@@ -106,7 +106,8 @@ public class CategoryServiceImpl implements CategoryService {
         }
     }
 
-    private CategoryEntity findById(Long id) throws CustomException {
+    @Override
+    public CategoryEntity findById(Long id) throws CustomException {
         return categoryRepository.findById(id).orElseThrow(
                 () -> CustomException.builder()
                         .httpStatus(HttpStatus.NOT_FOUND)
