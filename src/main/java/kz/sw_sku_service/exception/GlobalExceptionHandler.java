@@ -1,6 +1,6 @@
 package kz.sw_sku_service.exception;
 
-import kz.sw_sku_service.model.dto.ErrorResponseDTO;
+import kz.sw_sku_service.model.dto.response.ErrorResponseDTO;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;

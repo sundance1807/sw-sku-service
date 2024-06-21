@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 
 @Data
 public class SearchDTO {
-
     private Long id;
     private String name;
     private LocalDateTime fromDateTime;
