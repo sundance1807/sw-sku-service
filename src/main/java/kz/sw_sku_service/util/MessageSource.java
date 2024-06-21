@@ -6,7 +6,10 @@ public enum MessageSource {
     BRAND_EXISTS( "Brand with name: '%s' already exists."),
 
     CATEGORY_NOT_FOUND("Category with id: '%s' not found."),
-    CATEGORY_EXISTS("Category with name: '%s' already exists.")
+    CATEGORY_EXISTS("Category with name: '%s' already exists."),
+
+    SKU_NOT_FOUND("Sku with id: '%s' not found."),
+    SKU_EXISTS("Sku with name: '%s' already exists."),
     ;
 
     private final String text;
