@@ -2,19 +2,21 @@ package kz.sw_sku_service.util;
 
 public enum MessageSource {
 
-    DUPLICATED_BRAND( "Duplicated brand: %s."),
-    BRAND_NOT_FOUND("Brand not found: %s."),
-    BRAND_DELETED("Brand deleted: %s."),
+    BRAND_NOT_FOUND("Brand with id: '%s' not found."),
+    BRAND_EXISTS( "Brand with name: '%s' already exists."),
+
+    CATEGORY_NOT_FOUND("Category with id: '%s' not found."),
+    CATEGORY_EXISTS("Category with name: '%s' already exists.")
     ;
 
-    private final String message;
+    private final String text;
 
    MessageSource(String text) {
-        this.message = text;
+        this.text = text;
     }
 
-    public String getMessage(String... params) {
-       return String.format(this.message, (Object) params);
+    public String getText(String... params) {
+       return String.format(this.text, params);
     }
 }
 

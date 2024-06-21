@@ -1,4 +1,4 @@
-package kz.sw_sku_service.model.dto;
+package kz.sw_sku_service.model.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,6 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorResponseDTO {
-
     private LocalDateTime dateTime;
     private int code;
     private String message;

@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class BaseDTO {
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private LocalDateTime createdAt;

@@ -2,10 +2,10 @@ package kz.sw_sku_service.controller;
 
 import jakarta.validation.Valid;
 import kz.sw_sku_service.exception.CustomException;
-import kz.sw_sku_service.model.dto.BrandDTO;
+import kz.sw_sku_service.model.dto.CategoryDTO;
 import kz.sw_sku_service.model.dto.SearchDTO;
 import kz.sw_sku_service.model.dto.response.DeleteResponseDTO;
-import kz.sw_sku_service.service.impl.BrandServiceImpl;
+import kz.sw_sku_service.service.impl.CategoryServiceImpl;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -17,39 +17,39 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/brands")
+@RequestMapping("/categories")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class BrandController {
+public class CategoryController {
 
-    private final BrandServiceImpl brandServiceImpl;
+    private final CategoryServiceImpl categoryServiceImpl;
 
     @PostMapping("/v1")
-    public BrandDTO saveOne(@Valid @RequestBody BrandDTO dto) throws CustomException {
-        log.info("Incoming request to save brand: {}", dto.toString());
-        return brandServiceImpl.saveOne(dto);
+    public CategoryDTO saveOne(@RequestBody @Valid CategoryDTO dto) throws CustomException {
+        log.info("Incoming request to save category: {}", dto.getName());
+        return categoryServiceImpl.saveOne(dto);
     }
 
     @GetMapping("/v1/{id}")
-    public BrandDTO getOne(@PathVariable Long id) throws CustomException {
+    public CategoryDTO getOne(@PathVariable Long id) throws CustomException {
         log.info("Incoming request to get brand with id: {}", id);
-        return brandServiceImpl.getOne(id);
+        return categoryServiceImpl.getOne(id);
     }
 
     @PutMapping("/v1/{id}")
-    public BrandDTO updateOne(@PathVariable Long id, @RequestBody BrandDTO dto) throws CustomException {
+    public CategoryDTO updateOne(@PathVariable Long id, @RequestBody CategoryDTO dto) throws CustomException {
         log.info("Incoming request to update brand with id: {}.", id);
-        return brandServiceImpl.updateOne(id, dto);
+        return categoryServiceImpl.updateOne(id, dto);
     }
 
     @DeleteMapping("/v1/{id}")
     public DeleteResponseDTO deleteOne(@PathVariable Long id) throws CustomException {
         log.info("Incoming request to delete brand with id: {}", id);
-        return brandServiceImpl.deleteOne(id);
+        return categoryServiceImpl.deleteOne(id);
     }
 
     @PostMapping("/v1/search")
-    public Page<BrandDTO> search(@RequestBody SearchDTO searchDTO, Pageable pageable) {
+    public Page<CategoryDTO> search(@RequestBody SearchDTO searchDTO, Pageable pageable) {
         log.info("Incoming request to search brand: {}", searchDTO);
-        return brandServiceImpl.search(searchDTO, pageable);
+        return categoryServiceImpl.search(searchDTO, pageable);
     }
 }
