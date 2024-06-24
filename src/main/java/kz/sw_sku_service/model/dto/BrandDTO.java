@@ -10,5 +10,7 @@ public class BrandDTO extends BaseDTO {
 
     @NotBlank(message = "Наименование бренда должно быть заполнено")
     private String name;
+    private String description;
     private Boolean isMadeInKz = false;
+
 }

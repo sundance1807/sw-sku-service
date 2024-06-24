@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  sw-sku-service:
+    build: .
+    image: sw-sku-service:latest
+    container_name: service
+    environment:
+      DB_URL: jdbc:postgresql://sw-sku-service-db:5432/postgres
+      DB_HOST: sw-sku-service-db
+      DB_PORT: 5432
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASS: postgres
+    ports:
+      - "8081:8080"
+    depends_on:
+      - sw-sku-service-db
+    networks:
+      - sw-sku-service-network
+
+  sw-sku-service-db:
+    image: postgres:15
+    container_name: sw-sku-service-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - sw-sku-service-db-data:/var/lib/postgresql/data
+    networks:
+      - sw-sku-service-network
+
+networks:
+  sw-sku-service-network:
+    driver: bridge
+
+volumes:
+  sw-sku-service-db-data:
