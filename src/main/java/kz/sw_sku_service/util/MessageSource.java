@@ -19,7 +19,7 @@ public enum MessageSource {
     }
 
     public String getText(String... params) {
-       return String.format(this.text, params);
+       return String.format(this.text, (Object) params);
     }
 }
 
